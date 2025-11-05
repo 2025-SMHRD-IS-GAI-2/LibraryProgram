@@ -31,7 +31,8 @@ public class BorrowController {
 					while (true) {
 						int choice2 = view.showMenu2(); // 2번 메뉴, [1] 이벤트 확인 [2] 도서 목록보기 [3] 랜덤 책 추천
 						if (choice2 == 1) {
-							System.out.println("\n📚 [이벤트 안내]");
+							System.out.println("♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
+							System.out.println("📚 [이벤트 안내]");
 							System.out.println("현재 '5회 이상 도서 대출 시 독서대 증정' 이벤트 진행 중!");
 							int count = udao.event(user);
 
@@ -40,6 +41,7 @@ public class BorrowController {
 							} else {
 								System.out.println((5 - count) + "회 더 대출하시면 경품 당첨됩니다!");
 							}
+							System.out.println("♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
 
 							int nextChoice = view.showEventAfterMenu(); // 새로 추가한 이벤트 안내 후, 메뉴 메서드
 							if (nextChoice == 1) { // 이벤트 선택 이후, [1] 도서목록 보기 선택

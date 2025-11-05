@@ -77,19 +77,20 @@ public class UserView {
 	// 6. 로그인 결과 처리하는 메서드
 	public void statusLogin(String result_name) {
 		if (result_name != null) {
-			System.out.println("\n로그인 성공");
+			System.out.println("♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
+			System.out.println("로그인 성공");
 			System.out.println(result_name + "님 환영합니다!");
 
 		} else {
 			System.out.println("로그인에 실패했습니다. 다시 시도 해주세요.");
 		}
+		System.out.println("♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
 	}
 
 	// 이벤트 확인 및 도서 목록 보기 메서드
 	public int showMenu2() {
 		System.out.print("[1]이벤트 확인 [2]도서 목록보기 [3]책 추천>> ");
 		int choice2 = sc.nextInt();
-
 		return choice2;
 
 	}
@@ -110,12 +111,12 @@ public class UserView {
 	public void statusAll(ArrayList<LibraryVO>list) {
         
         if(list.size() !=0) {
-        	System.out.println("╭──────────── ─── ── ─ · · · · · ─ ── ─── ────────────╮");
+        	System.out.println("♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
            for(LibraryVO lvo : list) {
               System.out.println(lvo.getBooknum()+"번) 도서명-"+lvo.getBookname()+" / 저자: "+lvo.getWriter()+" / 보유권수: "+lvo.getBcount()+"권");
               System.out.println(" ");
            }
-           System.out.println("╰──────────── ─── ── ─ · · · · · ─ ── ─── ────────────╯");
+           System.out.println("♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
         }
      
 }
@@ -137,11 +138,12 @@ public class UserView {
 	// 랜덤 책 추천
 	public void statusRandom(ArrayList<LibraryVO> list2) {
 		if(list2.size() !=0) {
+			System.out.println("♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
 			for(LibraryVO lvo : list2) {
 				System.out.println(lvo.getBooknum() + "번) 도서명-" + lvo.getBookname() + " / 저자: " + lvo.getWriter()
 				+ " / 보유권수: " + lvo.getBcount() + "권");
 			}
-			
+			System.out.println("♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
 		}
 		
 		
@@ -154,6 +156,7 @@ public class UserView {
 	public int borrowMenu() {
 		System.out.print("대출 할 도서 번호 입력: ");
 		int booknum = sc.nextInt();
+		System.out.println("♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
 		return booknum;
 
 	}
