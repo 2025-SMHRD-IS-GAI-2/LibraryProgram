@@ -10,16 +10,32 @@ public class UserView {
 
 	Scanner sc = new Scanner(System.in);
 
+	
 	// 1. 메뉴 출력하는 메서드
 	public int showMenu() {
-		System.out.println("회원만 이용이 가능합니다.");
-		System.out.println("회원아이디가 없으신 분은 회원가입을 해주세요.");
-		System.out.print("[1] 회원가입 [2] 로그인>> ");
+	    System.out.println("                 ♡                          ♡          ");
+	    System.out.println(".             __♡                        __♡           ");
+	    System.out.println(".            ///\\                       ///\\         ");
+	    System.out.println(".           /////\\                     /////\\        ");
+	    System.out.println(".          //////\\\\___________________/////\\\\\\    ");
+	    System.out.println(".           |''''|                     |''''|          ");
+	    System.out.println(".           | H  |   |H|   |H|   |H|   | H  |          ");
+	    System.out.println(".           |    |                     |    |          ");
+	    System.out.println(".           |    |   |H|   |H|   |H|   |    |          ");
+	    System.out.println(".    _______|    |_______Library_______|    |_______   ");
+	    System.out.println(".   | HH HH |    |  HHH   | | |   HHH  |    | HH HH |  ");
+	    System.out.println(".   |_______|____|__HHH___|_|_|___HHH__|____|_______|  ");
+	    System.out.println(".        ♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈     ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
+	    System.out.println(". _________________________   _________________________");
+	    System.out.println("회원만 이용이 가능합니다.");
+	    System.out.println("회원아이디가 없으신 분은 회원가입을 해주세요.");
+	    System.out.print("[1] 회원가입 [2] 로그인>> ");
 
-		int choice = sc.nextInt();
-		return choice;
-
+	    java.util.Scanner sc = new java.util.Scanner(System.in);
+	    int choice = sc.nextInt();
+	    return choice;
 	}
+
 
 	// 2. 회원가입을 위한 정보입력 메서드
 	public UserVO showJoin() {
@@ -94,9 +110,12 @@ public class UserView {
 	public void statusAll(ArrayList<LibraryVO>list) {
         
         if(list.size() !=0) {
+        	System.out.println("╭──────────── ─── ── ─ · · · · · ─ ── ─── ────────────╮");
            for(LibraryVO lvo : list) {
               System.out.println(lvo.getBooknum()+"번) 도서명-"+lvo.getBookname()+" / 저자: "+lvo.getWriter()+" / 보유권수: "+lvo.getBcount()+"권");
+              System.out.println(" ");
            }
+           System.out.println("╰──────────── ─── ── ─ · · · · · ─ ── ─── ────────────╯");
         }
      
 }
