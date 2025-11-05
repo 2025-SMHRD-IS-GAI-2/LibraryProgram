@@ -29,8 +29,8 @@ public class BorrowController {
 					// 🔹 로그인 성공 시 루프 관리용 변수 추가
 
 					while (true) {
-						int choice2 = view.showMenu2(); // 2번 메뉴, [1] 이벤트 확인 [2] 도서 목록보기
-						if (choice2 == 1) { // [1]이벤트 확인
+						int choice2 = view.showMenu2(); // 2번 메뉴, [1] 이벤트 확인 [2] 도서 목록보기 [3] 랜덤 책 추천
+						if (choice2 == 1) {
 							System.out.println("\n📚 [이벤트 안내]");
 							System.out.println("현재 '5회 이상 도서 대출 시 독서대 증정' 이벤트 진행 중!");
 							int count = udao.event(user);
@@ -91,8 +91,13 @@ public class BorrowController {
 								System.exit(0);
 							}
 						}
+						else if(choice2==3) {
+							ArrayList<LibraryVO> list2 = ldao.getRandomBooks(3);
+							view.statusRandom(list2);
+						}
+						
 
-					} // while(isRunning)
+					} 
 				} else {
 					System.out.println("로그인 실패! 메인 메뉴로 돌아갑니다.\n");
 				}

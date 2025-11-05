@@ -10,16 +10,32 @@ public class UserView {
 
 	Scanner sc = new Scanner(System.in);
 
+	
 	// 1. 메뉴 출력하는 메서드
 	public int showMenu() {
-		System.out.println("회원만 이용이 가능합니다.");
-		System.out.println("회원아이디가 없으신 분은 회원가입을 해주세요.");
-		System.out.print("[1] 회원가입 [2] 로그인>> ");
+	    System.out.println("                 ♡                          ♡          ");
+	    System.out.println(".             __♡                        __♡           ");
+	    System.out.println(".            ///\\                       ///\\         ");
+	    System.out.println(".           /////\\                     /////\\        ");
+	    System.out.println(".          //////\\\\___________________/////\\\\\\    ");
+	    System.out.println(".           |''''|                     |''''|          ");
+	    System.out.println(".           | H  |   |H|   |H|   |H|   | H  |          ");
+	    System.out.println(".           |    |                     |    |          ");
+	    System.out.println(".           |    |   |H|   |H|   |H|   |    |          ");
+	    System.out.println(".    _______|    |_______Library_______|    |_______   ");
+	    System.out.println(".   | HH HH |    |  HHH   | | |   HHH  |    | HH HH |  ");
+	    System.out.println(".   |_______|____|__HHH___|_|_|___HHH__|____|_______|  ");
+	    System.out.println(".        ♡ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈     ┈ ┈ ┈ ┈ ┈ ┈ ┈ ┈ ♡");
+	    System.out.println(". _________________________   _________________________");
+	    System.out.println("회원만 이용이 가능합니다.");
+	    System.out.println("회원아이디가 없으신 분은 회원가입을 해주세요.");
+	    System.out.print("[1] 회원가입 [2] 로그인>> ");
 
-		int choice = sc.nextInt();
-		return choice;
-
+	    java.util.Scanner sc = new java.util.Scanner(System.in);
+	    int choice = sc.nextInt();
+	    return choice;
 	}
+
 
 	// 2. 회원가입을 위한 정보입력 메서드
 	public UserVO showJoin() {
@@ -68,17 +84,17 @@ public class UserView {
 			System.out.println("로그인에 실패했습니다. 다시 시도 해주세요.");
 		}
 	}
-	
+
 	// 이벤트 확인 및 도서 목록 보기 메서드
 	public int showMenu2() {
-	      System.out.print("[1]이벤트 확인 [2]도서 목록보기>> ");
-	      int choice2 = sc.nextInt();
-	      
-	      return choice2;
-	      
-	
+		System.out.print("[1]이벤트 확인 [2]도서 목록보기 [3]책 추천>> ");
+		int choice2 = sc.nextInt();
+
+		return choice2;
+
 	}
 	
+
 	// 이벤트 안내 후 보여줄 새로운 메뉴
     public int showEventAfterMenu() {
     	System.out.print("[1]도서목록 보기 [2]프로그램 종료>> ");
@@ -94,13 +110,18 @@ public class UserView {
 	public void statusAll(ArrayList<LibraryVO>list) {
         
         if(list.size() !=0) {
+        	System.out.println("╭──────────── ─── ── ─ · · · · · ─ ── ─── ────────────╮");
            for(LibraryVO lvo : list) {
               System.out.println(lvo.getBooknum()+"번) 도서명-"+lvo.getBookname()+" / 저자: "+lvo.getWriter()+" / 보유권수: "+lvo.getBcount()+"권");
+              System.out.println(" ");
            }
+           System.out.println("╰──────────── ─── ── ─ · · · · · ─ ── ─── ────────────╯");
         }
      
 }
 	
+
+
 	// 대출 or 프로그램
 	public int showMenu3() {
 		System.out.print("[1]대출하기 [2]프로그램 종료>> ");
@@ -109,22 +130,32 @@ public class UserView {
 		return choice3;
 		
 	}
+
+
+
 	
-	
-	// 대출할 책 1권 출력
-	public int borrowMenu() {
-		System.out.print("대출 할 도서 번호 입력: ");
-		int booknum = sc.nextInt();
-		return booknum;
+	// 랜덤 책 추천
+	public void statusRandom(ArrayList<LibraryVO> list2) {
+		if(list2.size() !=0) {
+			for(LibraryVO lvo : list2) {
+				System.out.println(lvo.getBooknum() + "번) 도서명-" + lvo.getBookname() + " / 저자: " + lvo.getWriter()
+				+ " / 보유권수: " + lvo.getBcount() + "권");
+			}
+			
+		}
+		
 		
 	}
 	
 	
 	
 
+	// 대출할 책 1권 출력
+	public int borrowMenu() {
+		System.out.print("대출 할 도서 번호 입력: ");
+		int booknum = sc.nextInt();
+		return booknum;
+
+	}
+
 }
-	
-	
-
-	
-

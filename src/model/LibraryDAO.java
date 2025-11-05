@@ -2,6 +2,7 @@ package model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class LibraryDAO extends BaseDAO {
 
@@ -36,6 +37,36 @@ public class LibraryDAO extends BaseDAO {
         return lvoList;
     }
 
+    // 랜덤 책 추천
+    public ArrayList<LibraryVO> getRandomBooks(int Count){
+    	
+    	ArrayList<LibraryVO> bookList = selectAll();//DB에서 전체 책 가져오기
+    	ArrayList<LibraryVO> randomBooks = new ArrayList<>();
+    	Random rd = new Random();
+    	
+    	boolean[]used = new boolean[bookList.size()];//중복 체크용
+    	
+    	while(randomBooks.size()<Count && randomBooks.size()<bookList.size()) {
+    		int index = rd.nextInt(bookList.size());//랜덤 인덱스
+    		if(!used[index]) {//아직 뽑지 않은 책이면
+    			randomBooks.add(bookList.get(index));//책 추가
+    			used[index]=true; // 뽑았다고 표시
+    		}
+    	}
+    	return randomBooks;//랜덤 3권
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    }
+    
+    
+    
+    
     // 도서 1권 조회
     public LibraryVO selectOne(int booknumber) {
         LibraryVO result = null;
