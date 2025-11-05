@@ -2,7 +2,7 @@ package main;
 
 import controller.BorrowController;
 
-public class main {
+public class Main {
 
 	public static void main(String[] args) {
 		BorrowController controller = new BorrowController();

@@ -26,7 +26,7 @@ public class BorrowController {
 				view.statusLogin(result);
 
 				if (result != null) {
-					// 🔹 로그인 성공 시 루프 관리용 변수 추가
+					//  로그인 성공 시 루프 관리용 변수 추가
 
 					while (true) {
 						int choice2 = view.showMenu2(); // 2번 메뉴, [1] 이벤트 확인 [2] 도서 목록보기 [3] 랜덤 책 추천
@@ -56,6 +56,7 @@ public class BorrowController {
 										udao.borrowCount(user);
 										System.out.println("\n✅ '" + book.getBookname() + "' 대출 완료!");
 										System.out.println("반납기한은 오늘로부터 7일 뒤입니다.\n");
+										
 									} else {
 										System.out.println("❌ 대출 불가한 도서입니다.");
 									}
@@ -94,6 +95,7 @@ public class BorrowController {
 						else if(choice2==3) {
 							ArrayList<LibraryVO> list2 = ldao.getRandomBooks(3);
 							view.statusRandom(list2);
+							
 						}
 						
 

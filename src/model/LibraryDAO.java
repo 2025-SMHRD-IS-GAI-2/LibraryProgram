@@ -55,13 +55,6 @@ public class LibraryDAO extends BaseDAO {
     	}
     	return randomBooks;//랜덤 3권
     	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     }
     
     
