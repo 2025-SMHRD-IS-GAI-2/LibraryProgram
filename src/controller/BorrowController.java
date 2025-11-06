@@ -30,16 +30,10 @@ public class BorrowController {
 
 					while (true) {
 						int choice2 = view.showMenu2(); // 2번 메뉴, [1] 이벤트 확인 [2] 도서 목록보기 [3] 랜덤 책 추천
-						if (choice2 == 1) {
-							System.out.println("\n📚 [이벤트 안내]");
-							System.out.println("현재 '5회 이상 도서 대출 시 독서대 증정' 이벤트 진행 중!");
+						if (choice2 == 1) {// 이벤트 확인
+							view.EventMenu();
 							int count = udao.event(user);
-
-							if (count >= 5) {
-								System.out.println("🎉 축하합니다! " + count + "회 이용으로 경품 당첨!");
-							} else {
-								System.out.println((5 - count) + "회 더 대출하시면 경품 당첨됩니다!");
-							}
+							view.showEventResult(count);
 
 							int nextChoice = view.showEventAfterMenu(); // 새로 추가한 이벤트 안내 후, 메뉴 메서드
 							if (nextChoice == 1) { // 이벤트 선택 이후, [1] 도서목록 보기 선택
@@ -54,18 +48,16 @@ public class BorrowController {
 									if (book != null && book.getBcount() > 0) {
 										ldao.borrowBook(book);
 										udao.borrowCount(user);
-										System.out.println("\n✅ '" + book.getBookname() + "' 대출 완료!");
-										System.out.println("반납기한은 오늘로부터 7일 뒤입니다.\n");
-										
+										view.borrowSuccess(book);
 									} else {
-										System.out.println("❌ 대출 불가한 도서입니다.");
+										view.borrowFail();
 									}
 								} else if (choice3 == 2) { // 프로그램 종료 선택
-									System.out.println("프로그램을 종료합니다.");
+									view.programExit();
 									System.exit(0);
 								}
 							} else if (nextChoice == 2) { // 이벤트 선택 이후 [2]종료 선택
-								System.out.println("프로그램을 종료합니다.");
+								view.programExit();
 								System.exit(0);
 							}
 						}
@@ -75,35 +67,56 @@ public class BorrowController {
 							view.statusAll(list);
 
 							int choice3 = view.showMenu3(); // [1]대출 [2]프로그램 종료 메뉴
-							if (choice3 == 1) {
+							if (choice3 == 1) {// 대출 성공
 								int booknum = view.borrowMenu();
 								LibraryVO book = ldao.selectOne(booknum);
 
 								if (book != null && book.getBcount() > 0) {
 									ldao.borrowBook(book);
 									udao.borrowCount(user);
-									System.out.println("\n✅ '" + book.getBookname() + "' 대출 완료!");
-									System.out.println("반납기한은 오늘로부터 7일 뒤입니다.\n");
-								} else {
-									System.out.println("❌ 대출 불가한 도서입니다.");
+									view.borrowSuccess(book);
+								} else {// 대출 실패
+									view.borrowFail();
 								}
-							} else if (choice3 == 2) {
-								System.out.println("프로그램을 종료합니다.");
+							} else if (choice3 == 2) {// 프로그램 종료
+								view.programExit();
 								System.exit(0);
 							}
 						}
-						else if(choice2==3) {
+						else if(choice2==3) {// 랜덤 책 추천
 							ArrayList<LibraryVO> list2 = ldao.getRandomBooks(3);
 							view.statusRandom(list2);
-							
+							int choice3 = view.showMenu3(); // [1]대출 [2]프로그램 종료 메뉴
+							if (choice3 == 1) {// 대출 성공
+								int booknum = view.borrowMenu();
+								LibraryVO book = ldao.selectOne(booknum);
+
+								if (book != null && book.getBcount() > 0) {
+									ldao.borrowBook(book);
+									udao.borrowCount(user);
+									view.borrowSuccess(book);
+								} else {// 대출 실패
+									view.borrowFail();
+								}
+							} else if (choice3 == 2) {// 프로그램 종료
+								view.programExit();
+								System.exit(0);
+							}
+						}else if(choice2==4) {
+							view.programExit();
+							System.exit(0);
 						}
+						
 						
 
 					} 
-				} else {
-					System.out.println("로그인 실패! 메인 메뉴로 돌아갑니다.\n");
+				} else {// 로그인 실패시 
+					view.loginFail();;
 				}
-			} // else if(choice==2)
+			 // else if(choice==2)
 		} // while(true)
 	} // run()
+}
+	
+
 }
