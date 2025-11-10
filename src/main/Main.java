@@ -8,6 +8,10 @@ public class Main {
 		BorrowController controller = new BorrowController();
 		
 		controller.run();
+<<<<<<< HEAD
+=======
+		// 선희에요:D
+>>>>>>> refs/remotes/origin/sunhui
 		
 	}
 
