@@ -31,7 +31,7 @@ public class BorrowController {
 					while (true) {
 						int choice2 = view.showMenu2(); // 2번 메뉴, [1] 이벤트 확인 [2] 도서 목록보기 [3] 랜덤 책 추천
 						if (choice2 == 1) {// 이벤트 확인
-							System.out.println("충돌시켜버리기");
+							System.out.println("충돌시켜버리기!!!");
 							view.EventMenu();
 							int count = udao.event(user);
 							view.showEventResult(count);
