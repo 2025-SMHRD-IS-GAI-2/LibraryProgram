@@ -9,6 +9,7 @@ public class Main {
 		
 		controller.run();
 		// 선희에요:D
+		// git 너무 어려워요:(
 		
 	}
 
